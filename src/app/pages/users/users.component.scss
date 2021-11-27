@@ -1,0 +1,42 @@
+@import '../../../assets/style/variables';
+
+.users {
+    padding: 50px 0;
+
+    table {
+        border-collapse: separate;
+        border-spacing: 0 7px;
+        text-transform: capitalize;
+        color: $gray;
+        font-size: $fontSize14;
+
+        tbody {
+            tr {
+                border-radius: $border-radius;
+                vertical-align: middle;
+            }
+
+            td {
+                border-top: 1px solid $grayLight;
+                border-bottom: 1px solid $grayLight;
+
+                &:first-child {
+                    border-left: 1px solid $grayLight;
+                }
+
+                &:last-child {
+                    border-right: 1px solid $grayLight;
+                }
+
+                h6 {
+                    font-size: $fontSize14;
+                }
+            }
+
+            tr:hover {
+                background-color: $light;
+                cursor: pointer;
+            }
+        }
+    }
+}

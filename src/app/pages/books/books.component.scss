@@ -1,0 +1,21 @@
+@import '../../../assets/style/variables';
+
+.books {
+    padding: 50px 0;
+
+    .card {
+        padding: 15px;
+        border: none;
+        text-transform: capitalize;
+
+        h5 {
+            font-size: $fontSize16;
+            color: $grayDark;
+        }
+
+        h6 {
+            font-size: $fontSize14;
+            color: $gray;
+        }
+    }
+}

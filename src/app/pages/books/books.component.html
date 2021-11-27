@@ -1,0 +1,26 @@
+<section class="books">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card">
+        <div class="d-flex justify-content-between align-items-center">
+          <h5 class="card-name">{{book?.name}}</h5>
+          <h6 class="text-center" [ngClass]="book?.Status ? 'purble-status' : 'orang-status'">
+            {{book?.Status  ? 'published' : 'draft'}}</h6>
+        </div>
+        <app-image-loader [alt]="book?.name" [image]='book?.cover'>
+        </app-image-loader>
+        <h5 class="card-name mt-2">{{book?.name}}</h5>
+        <h6>
+          {{book?.createdAt | date:'fullDate'}}
+        </h6>
+        <h6>
+          {{book?.Pages}} Pages
+        </h6>
+        <h6>
+          downloaded {{book?.downloaded}} times
+        </h6>
+
+      </div>
+    </div>
+  </div>
+</section>
