@@ -1,18 +1,23 @@
 // colors
-$mainColor:#6100f1;
-$lightMainColor:#f3f4ff;
-$orangeColor:#f3b150;
-$lightOrangeColor:#fff2e7;
-$gray:#777;
+$mainColor:#6200EE;
+$lightMainColor:#F2F5FF;
+$blueColor:#6280FF;
+$orangeColor:#FF9C46;
+$lightOrangeColor:#FFF3E9;
+$greenColor:#4A7745;
+$gray:#484848;
 $light:#fafafa;
 $grayDark:#111;
 $grayLight:#ddd;
+
+
 // general
 $bold700:700;
-$border-radius: 0.3rem;
-$border-curve: 2rem;
+$borderRadius: 0.3rem;
+$borderCurve: 2rem;
+$borderCircle: 50%;
 $transition:all .2s ease-in-out;
-$box-shadow: 0 1px 4px rgba(0, 0, 0, .15);
+$boxShadow: 0 1px 4px rgba(0, 0, 0, .15);
 $fontSize30: 30px;
 $fontSize25: 25px;
 $fontSize20: 20px;
@@ -21,3 +26,5 @@ $fontSize17: 17px;
 $fontSize16: 16px;
 $fontSize15: 15px;
 $fontSize14: 14px;
+$fontSize13: 13px;
+$fontSize12: 12px;

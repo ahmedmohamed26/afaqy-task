@@ -31,6 +31,5 @@ export class BooksComponent implements OnInit {
 
   getBookById() {
     this.book = this.books.find((book: Books) => book.id == this.bookId);
-    console.log(this.book);
   }
 }

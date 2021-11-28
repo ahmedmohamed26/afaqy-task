@@ -3,6 +3,96 @@
 .users {
     padding: 50px 0;
 
+    .count-users {
+        background-image: url("../../../assets/images/count-users.png");
+        min-height: 350px;
+        border-radius: $borderCurve;
+        padding: 15px;
+        box-shadow: $boxShadow;
+        position: sticky;
+        top: 20px;
+
+        .title {
+            font-size: $fontSize25;
+            color: $greenColor;
+            text-transform: capitalize;
+        }
+
+
+
+        .parent-circle-images {
+            position: relative;
+
+            .tooltip-container {
+                padding: 15px;
+                box-shadow: $boxShadow;
+                background: #fff;
+                border-radius: $borderRadius;
+                position: absolute;
+                top: 40px;
+
+                h5 {
+                    font-size: $fontSize17;
+                    color: #000;
+                }
+
+                h6 {
+                    font-size: $fontSize12;
+                    color: $gray;
+
+                }
+            }
+
+            .circle-images {
+                display: flex;
+                height: 200px;
+                align-items: end;
+
+                img {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: $borderCircle;
+                    cursor: pointer;
+                    margin-right: -15px;
+                }
+
+                .count {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: $borderCircle;
+                    cursor: pointer;
+                    margin-right: -15px;
+                    background-color: #fff;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    box-shadow: $boxShadow;
+
+                    h6 {
+                        color: $gray;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+
+        .percent-progress {
+            h6 {
+                color: $greenColor;
+                font-size: $fontSize17;
+                text-transform: capitalize;
+            }
+
+            .progress {
+                height: .5rem;
+
+                .progress-bar {
+                    background-color: #1FC74C;
+                }
+            }
+        }
+    }
+
     table {
         border-collapse: separate;
         border-spacing: 0 7px;
@@ -12,8 +102,9 @@
 
         tbody {
             tr {
-                border-radius: $border-radius;
+                border-radius: $borderRadius;
                 vertical-align: middle;
+                color: #000;
             }
 
             td {

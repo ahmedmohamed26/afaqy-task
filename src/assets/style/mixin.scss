@@ -1,7 +1,7 @@
 @import './variables.scss';
 
 @mixin button {
-        border-radius: $border-radius;
+        border-radius: $borderRadius;
         padding: 10px 25px;
         margin: 0 5px;
         border: none;
@@ -9,6 +9,6 @@
         cursor: pointer;
         transition: $transition;
         color: #fff;
-        box-shadow: $box-shadow;
+        box-shadow: $boxShadow;
         position: relative;
 }

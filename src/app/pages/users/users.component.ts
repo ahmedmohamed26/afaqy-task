@@ -9,11 +9,16 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./users.component.scss'],
 })
 export class UsersComponent implements OnInit {
+  borderColor = ['#fff', '#00B50C', '#fff', '#EC2F2F'];
   users: Users[] = [];
+  activeUsers: Users[] = [];
+  percentActiveUsers: number = 0;
   copyArrUsers = [];
   page: number = 1;
   total: number = 0;
   isLoading: boolean = false;
+  isShowTooltip: boolean = false;
+  tooltipInfo: Users = {};
   constructor(private usersService: UsersService, private router: Router) {}
 
   ngOnInit(): void {
@@ -27,6 +32,9 @@ export class UsersComponent implements OnInit {
       this.total = this.copyArrUsers.length;
       this.sortArray(this.copyArrUsers);
       this.users = this.copyArrUsers.slice(0, this.page * 4);
+      this.activeUsers = this.copyArrUsers.filter((item: Users) => item.active);
+      this.percentActiveUsers =
+        (this.activeUsers.length / this.copyArrUsers.length) * 100;
       this.isLoading = false;
     });
   }
@@ -45,7 +53,15 @@ export class UsersComponent implements OnInit {
     this.isLoading = false;
   }
 
-  goToBookPage(user: any) {
+  goToBookPage(user: Users) {
     this.router.navigate(['/books', user.id]);
+  }
+
+  showTooltip(user: Users) {
+    this.tooltipInfo = user;
+    this.isShowTooltip = true;
+  }
+  hideTooltip() {
+    this.isShowTooltip = false;
   }
 }

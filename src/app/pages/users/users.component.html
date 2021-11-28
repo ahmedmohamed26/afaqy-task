@@ -1,43 +1,79 @@
 <section class="users">
-  <div class="row">
-    <div class="col-md-3">
-
-    </div>
-    <div class="col-md-9">
-      <table class="table table-borderless table-responsive">
-        <thead>
-          <tr>
-            <th scope="col">book</th>
-            <th scope="col">author</th>
-            <th scope="col">date</th>
-            <th scope="col">status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor='let user of users' (click)="goToBookPage(user)">
-            <td>
-              <app-image-loader [alt]="user?.firstName" [image]='user?.image' width='60px' height='60px'>
-              </app-image-loader>
-            </td>
-            <td>
-              <h6>{{user?.firstName}} {{user?.lastName}}</h6>
-            </td>
-            <td>
-              <h6>{{user?.createdAt | date:'fullDate'}}</h6>
-            <td>
-            <td>
-              <h6 class="text-center" [ngClass]="user?.active ? 'purble-status' : 'orang-status'">
-                {{user?.active  ? 'published' : 'draft'}}</h6>
-            <td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="w-100 d-flex justify-content-center">
-        <button class="default-btn" (click)='loadMore()' [disabled]="users.length == total">
-          <app-loading *ngIf='isLoading'></app-loading>
-          <h6 class="mb-1" *ngIf='!isLoading'>load more</h6>
-        </button>
+  <ng-container *ngIf='isLoading'>
+    <app-loading></app-loading>
+  </ng-container>
+  <ng-container *ngIf='!isLoading'>
+    <div class="row">
+      <div class="col-md-3">
+        <ng-container *ngIf='activeUsers'>
+          <div class="count-users">
+            <h2 class="title">users</h2>
+            <div class="parent-circle-images">
+              <div class="tooltip-container" *ngIf='isShowTooltip'>
+                <h5>{{tooltipInfo?.firstName}} {{tooltipInfo?.lastName}}</h5>
+                <h6>joined {{tooltipInfo?.createdAt | date:'fullDate'}}</h6>
+                <h6>{{tooltipInfo?.books}} books</h6>
+              </div>
+              <div class="circle-images">
+                <img *ngFor='let item of activeUsers | slice:0:4;let i = index' [src]="item?.image" alt="item?.name"
+                  [ngStyle]="{'border': '2px solid' + borderColor[i]}" (mouseover)='showTooltip(item)'
+                  (mouseout)='hideTooltip()'>
+                <div class="count">
+                  <h6>+{{activeUsers.length - 4}}</h6>
+                </div>
+              </div>
+            </div>
+            <div class="percent-progress mt-4">
+              <div class="d-flex justify-content-between">
+                <h6>Active</h6>
+                <h6> {{ percentActiveUsers }}%</h6>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" [style.width.%]="percentActiveUsers"
+                  attr.aria-valuenow="{{percentActiveUsers}}" aria-valuemin="0" aria-valuemax="100">
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <div class="col-md-9">
+        <table class="table table-borderless table-responsive">
+          <thead>
+            <tr>
+              <th scope="col">book</th>
+              <th scope="col">author</th>
+              <th scope="col">date</th>
+              <th scope="col">status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let user of users' (click)="goToBookPage(user)">
+              <td>
+                <app-image-loader [alt]="user?.firstName" [image]='user?.image' width='60px' height='60px'>
+                </app-image-loader>
+              </td>
+              <td>
+                <h6>{{user?.firstName}} {{user?.lastName}}</h6>
+              </td>
+              <td>
+                <h6>{{user?.createdAt | date:'fullDate'}}</h6>
+              <td>
+              <td>
+                <h6 class="text-center" [ngClass]="user?.active ? 'purble-status' : 'orang-status'">
+                  {{user?.active  ? 'published' : 'draft'}}</h6>
+              <td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="w-100 d-flex justify-content-center">
+          <button class="default-btn" (click)='loadMore()' [disabled]="users.length == total">
+            <app-loading *ngIf='isLoading'></app-loading>
+            <h6 class="mb-1" *ngIf='!isLoading'>load more</h6>
+          </button>
+        </div>
       </div>
     </div>
-  </div>
+  </ng-container>
+
 </section>
